@@ -1,7 +1,7 @@
 package mathx
 
 // MaxInt returns the larger of two int numbers.
-func MaxInt(x, y) int {
+func MaxInt(x, y int) int {
 	if x > y {
 		return x
 	}
@@ -9,7 +9,7 @@ func MaxInt(x, y) int {
 }
 
 // MaxInt64 returns the larger of two int64 numbers.
-func MaxInt64(x, y) int64 {
+func MaxInt64(x, y int64) int64 {
 	if x > y {
 		return x
 	}
@@ -17,7 +17,7 @@ func MaxInt64(x, y) int64 {
 }
 
 // MinInt returns the smaller of two int numbers.
-func MinInt(x, y) int {
+func MinInt(x, y int) int {
 	if x > y {
 		return y
 	}
@@ -25,7 +25,7 @@ func MinInt(x, y) int {
 }
 
 // MinInt64 returns the smaller of two int64 numbers.
-func MinInt64(x, y) int64 {
+func MinInt64(x, y int64) int64 {
 	if x > y {
 		return y
 	}
