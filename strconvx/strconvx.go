@@ -27,12 +27,16 @@ func ParseIntOrPanic(s string) (int, error) {
 	if err != nil {
 		panic(err)
 	}
-	return r
+	return r, nil
 }
 
 // ParseUint returns strconv.ParseUint(s, 10, 0)
 func ParseUint(s string) (uint, error) {
-	return strconv.ParseUint(s, 10, 0)
+	r, err := strconv.ParseUint(s, 10, 0)
+	if err != nil {
+		return 0, err
+	}
+	return uint(r), nil
 }
 
 // ParseUintOrPanic panics if ParseUint returns an error
