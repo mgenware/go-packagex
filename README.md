@@ -1,2 +1,2 @@
-# go-primitive
-Utils for Go primitive types 
+# go-packagex
+Utils for Go(Golang) standard packages
