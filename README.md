@@ -10,9 +10,9 @@ Utils for Go(Golang) standard packages
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/mathx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/mathx)
 
-* `Min`, `Max` for `int`, `int64` types.
+* `Min`, `Max` for `int`, `int64`, `uint`, `uint64` types.
 
-## strconv
+## strconvx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/mathx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/mathx)
 
