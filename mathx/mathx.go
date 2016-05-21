@@ -16,6 +16,22 @@ func MaxInt64(x, y int64) int64 {
 	return y
 }
 
+// MaxUint returns the larger of two uint numbers.
+func MaxUint(x, y uint) uint {
+	if x > y {
+		return x
+	}
+	return y
+}
+
+// MaxUint64 returns the larger of two uint64 numbers.
+func MaxUint64(x, y uint64) uint64 {
+	if x > y {
+		return x
+	}
+	return y
+}
+
 // MinInt returns the smaller of two int numbers.
 func MinInt(x, y int) int {
 	if x > y {
@@ -26,6 +42,22 @@ func MinInt(x, y int) int {
 
 // MinInt64 returns the smaller of two int64 numbers.
 func MinInt64(x, y int64) int64 {
+	if x > y {
+		return y
+	}
+	return x
+}
+
+// MinUint returns the smaller of two uint numbers.
+func MinUint(x, y uint) uint {
+	if x > y {
+		return y
+	}
+	return x
+}
+
+// MinUint64 returns the smaller of two uint64 numbers.
+func MinUint64(x, y uint64) uint64 {
 	if x > y {
 		return y
 	}
