@@ -30,3 +30,15 @@ go get github.com/mgenware/go-packagex/strconvx
 
 Overview:
 * Quick `ParseXXX` functions without `base` or `bitSize` parameters.
+
+## httpx
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/httpx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/httpx)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/httpx
+```
+
+Overview:
+* Set HTTP response `Content-Type` to common MIME types or from an file extension.
