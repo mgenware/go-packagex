@@ -5,16 +5,6 @@ import (
 	"net/http"
 )
 
-const (
-	MIMETypeText = "text/plain"
-	MIMETypeHTML = "text/html"
-	MIMETypePNG  = "image/png"
-	MIMETypeForm = "x-www-form-urlencoded"
-	MIMETypeJSON = "application/json"
-	MIMETypeRSS  = "application/rss+xml"
-	MIMETypeAtom = "application/atom+xml"
-)
-
 // SetResponseContentType sets response Content-Type header to a specified value.
 func SetResponseContentType(w http.ResponseWriter, contentType string) {
 	w.Header().Set("Content-Type", contentType)
