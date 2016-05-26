@@ -1,4 +1,4 @@
-package mimex
+package httpx
 
 const (
 	MIMETypeText = "text/plain"

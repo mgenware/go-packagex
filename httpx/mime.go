@@ -1,4 +1,4 @@
-package mhttp
+package httpx
 
 import (
 	"mime"
@@ -14,6 +14,6 @@ func SetResponseContentType(w http.ResponseWriter, contentType string) {
 func SetResponseContentTypeFromExtension(w http.ResponseWriter, extension string) {
 	mime := mime.TypeByExtension(extension)
 	if mime != "" {
-		setContentType(w, mime)
+		SetResponseContentType(w, mime)
 	}
 }
