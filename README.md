@@ -42,3 +42,6 @@ go get github.com/mgenware/go-packagex/httpx
 
 Overview:
 * Set HTTP response `Content-Type` to common MIME types or from an file extension.
+
+# License
+MIT
