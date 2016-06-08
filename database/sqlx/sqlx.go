@@ -19,8 +19,8 @@ func Transact(db *sql.DB, txFunc func(*sql.Tx) error) (err error) {
 	return err
 }
 
-// GetLastInsertIdUint64 calls result.LastInsertId() and returns its result as uint64.
-func GetLastInsertIdUint64(result sql.Result) (uint64, error) {
+// GetLastInsertIDUint64 calls result.LastInsertId() and returns its result as uint64.
+func GetLastInsertIDUint64(result sql.Result) (uint64, error) {
 	id, err := result.LastInsertId()
 	if err != nil {
 		return 0, err
@@ -28,8 +28,8 @@ func GetLastInsertIdUint64(result sql.Result) (uint64, error) {
 	return uint64(id), err
 }
 
-// GetLastInsertIdInt calls result.LastInsertId() and returns its result as int.
-func GetLastInsertIdInt(result sql.Result) (int, error) {
+// GetLastInsertIDInt calls result.LastInsertId() and returns its result as int.
+func GetLastInsertIDInt(result sql.Result) (int, error) {
 	id, err := result.LastInsertId()
 	if err != nil {
 		return 0, err
@@ -37,9 +37,36 @@ func GetLastInsertIdInt(result sql.Result) (int, error) {
 	return int(id), err
 }
 
-// GetLastInsertIdUint calls result.LastInsertId() and returns its result as uint.
-func GetLastInsertIdUint(result sql.Result) (uint, error) {
+// GetLastInsertIDUint calls result.LastInsertId() and returns its result as uint.
+func GetLastInsertIDUint(result sql.Result) (uint, error) {
 	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, err
+	}
+	return uint(id), err
+}
+
+// GetRowsAffectedUint64 calls result.RowsAffected() and returns its result as uint64.
+func GetRowsAffectedUint64(result sql.Result) (uint64, error) {
+	id, err := result.RowsAffected()
+	if err != nil {
+		return 0, err
+	}
+	return uint64(id), err
+}
+
+// GetRowsAffectedInt calls result.RowsAffected() and returns its result as int.
+func GetRowsAffectedInt(result sql.Result) (int, error) {
+	id, err := result.RowsAffected()
+	if err != nil {
+		return 0, err
+	}
+	return int(id), err
+}
+
+// GetRowsAffectedUint calls result.RowsAffected() and returns its result as uint.
+func GetRowsAffectedUint(result sql.Result) (uint, error) {
+	id, err := result.RowsAffected()
 	if err != nil {
 		return 0, err
 	}
