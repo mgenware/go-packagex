@@ -76,17 +76,17 @@ func GetRowsAffectedUint(result sql.Result) (uint, error) {
 	return uint(id), err
 }
 
-func CheckRowsAffected(result sql.Result, num int) (int, error) {
+func CheckRowsAffected(result sql.Result, num int) error {
 	rows, err := GetRowsAffectedInt(result)
 	if err != nil {
-		return 0, err
+		return err
 	}
 	if rows != num {
-		return 0, fmt.Errorf("Expect %v rows affected, got %v.", num, rows)
+		return fmt.Errorf("Expected %v rows affected, got %v.", num, rows)
 	}
-	return rows, nil
+	return nil
 }
 
-func CheckOneRowAffected(result sql.Result) (int, error) {
+func CheckOneRowAffected(result sql.Result) error {
 	return CheckRowsAffected(result, 1)
 }
