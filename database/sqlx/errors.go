@@ -4,7 +4,7 @@ import (
 	"database/sql"
 )
 
-func GetLastInsertIDWithError(result sql.Result) (int64, error) {
+func GetLastInsertIDWithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
 	}
@@ -32,7 +32,7 @@ func GetLastInsertIDUintWithError(result sql.Result, err error) (uint, error) {
 	return GetLastInsertIDUint(result)
 }
 
-func GetRowsAffectedWithError(result sql.Result) (int64, error) {
+func GetRowsAffectedWithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
 	}

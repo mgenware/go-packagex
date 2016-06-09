@@ -2,7 +2,7 @@ package sqlx
 
 import (
 	"database/sql"
-	"errors"
+	"fmt"
 )
 
 // Transact starts a database transaction and calls Commit() when no errors, otherwise Rollback() will be called.
@@ -82,7 +82,7 @@ func CheckRowsAffected(result sql.Result, num int) (int, error) {
 		return 0, err
 	}
 	if rows != num {
-		return 0, errors.Newf("Expect %v rows affected, got %v.", num, rows)
+		return 0, fmt.Errorf("Expect %v rows affected, got %v.", num, rows)
 	}
 	return rows, nil
 }
