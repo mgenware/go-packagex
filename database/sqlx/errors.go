@@ -59,3 +59,10 @@ func GetRowsAffectedUintWithError(result sql.Result, err error) (uint, error) {
 	}
 	return GetRowsAffectedUint(result)
 }
+
+func CheckOneRowAffectedWithError(result sql.Result, err error) (int, error) {
+	if err != nil {
+		return 0, err
+	}
+	return CheckOneRowAffected(result)
+}

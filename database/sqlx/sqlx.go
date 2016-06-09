@@ -1,6 +1,9 @@
 package sqlx
 
-import "database/sql"
+import (
+	"database/sql"
+	"errors"
+)
 
 // Transact starts a database transaction and calls Commit() when no errors, otherwise Rollback() will be called.
 func Transact(db *sql.DB, txFunc func(*sql.Tx) error) (err error) {
@@ -71,4 +74,19 @@ func GetRowsAffectedUint(result sql.Result) (uint, error) {
 		return 0, err
 	}
 	return uint(id), err
+}
+
+func CheckRowsAffected(result sql.Result, num int) (int, error) {
+	rows, err := GetRowsAffectedInt(result)
+	if err != nil {
+		return 0, err
+	}
+	if rows != num {
+		return 0, errors.Newf("Expect %v rows affected, got %v.", num, rows)
+	}
+	return rows, nil
+}
+
+func CheckOneRowAffected(result sql.Result) (int, error) {
+	return CheckRowsAffected(result, 1)
 }
