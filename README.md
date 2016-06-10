@@ -54,7 +54,10 @@ go get github.com/mgenware/go-packagex/database/sqlx
 
 Overview:
 * Helper function to start a database transaction.
-* Convert `LastInsertId` result to `uint64`, `int`, `uint`.
+* Convert `Result.LastInsertId` to `uint64`, `int`, `uint`.
+* Convert `Result.RowsAffected` to `uint64`, `int`, `uint`.
+* Limit number of rows affected.
+* Common interface definition for `database/sql` package.
 
 # License
 MIT
