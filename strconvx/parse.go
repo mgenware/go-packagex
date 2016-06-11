@@ -20,3 +20,21 @@ func ParseUint(s string) (uint, error) {
 	}
 	return uint(r), nil
 }
+
+// ParseInt64 returns strconv.ParseInt(s, 10, 64).
+func ParseInt64(s string) (int64, error) {
+	r, err := strconv.ParseInt(s, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+	return int64(r), nil
+}
+
+// ParseUint64 returns strconv.ParseUint(s, 10, 64).
+func ParseUint64(s string) (uint64, error) {
+	r, err := strconv.ParseUint(s, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+	return uint64(r), nil
+}
