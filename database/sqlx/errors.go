@@ -32,6 +32,13 @@ func GetLastInsertIDUintWithError(result sql.Result, err error) (uint, error) {
 	return GetLastInsertIDUint(result)
 }
 
+func GetLastInsertIDInt64WithError(result sql.Result, err error) (int64, error) {
+	if err != nil {
+		return 0, err
+	}
+	return result.LastInsertId()
+}
+
 func GetRowsAffectedWithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
@@ -58,6 +65,13 @@ func GetRowsAffectedUintWithError(result sql.Result, err error) (uint, error) {
 		return 0, err
 	}
 	return GetRowsAffectedUint(result)
+}
+
+func GetRowsAffectedInt64WithError(result sql.Result, err error) (int64, error) {
+	if err != nil {
+		return 0, err
+	}
+	return result.RowsAffected()
 }
 
 func CheckOneRowAffectedWithError(result sql.Result, err error) error {
