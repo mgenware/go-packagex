@@ -76,6 +76,7 @@ func GetRowsAffectedUint(result sql.Result) (uint, error) {
 	return uint(id), err
 }
 
+// CheckRowsAffected returns an error if rows affected does not equal to a given number.
 func CheckRowsAffected(result sql.Result, num int) error {
 	rows, err := GetRowsAffectedInt(result)
 	if err != nil {
@@ -87,6 +88,7 @@ func CheckRowsAffected(result sql.Result, num int) error {
 	return nil
 }
 
+// CheckOneRowAffected returns an error if rows affected does not not equal to 1.
 func CheckOneRowAffected(result sql.Result) error {
 	return CheckRowsAffected(result, 1)
 }

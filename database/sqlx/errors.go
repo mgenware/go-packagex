@@ -4,6 +4,7 @@ import (
 	"database/sql"
 )
 
+// GetLastInsertIDWithError checks a given error before calling GetLastInsertID.
 func GetLastInsertIDWithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
@@ -11,6 +12,7 @@ func GetLastInsertIDWithError(result sql.Result, err error) (int64, error) {
 	return result.LastInsertId()
 }
 
+// GetLastInsertIDUint64WithError checks a given error before calling GetLastInsertIDUint64.
 func GetLastInsertIDUint64WithError(result sql.Result, err error) (uint64, error) {
 	if err != nil {
 		return 0, err
@@ -18,6 +20,7 @@ func GetLastInsertIDUint64WithError(result sql.Result, err error) (uint64, error
 	return GetLastInsertIDUint64(result)
 }
 
+// GetLastInsertIDIntWithError checks a given  error before calling GetLastInsertIDInt.
 func GetLastInsertIDIntWithError(result sql.Result, err error) (int, error) {
 	if err != nil {
 		return 0, err
@@ -25,6 +28,7 @@ func GetLastInsertIDIntWithError(result sql.Result, err error) (int, error) {
 	return GetLastInsertIDInt(result)
 }
 
+// GetLastInsertIDUintWithError checks a given error before calling GetLastInsertIDUint.
 func GetLastInsertIDUintWithError(result sql.Result, err error) (uint, error) {
 	if err != nil {
 		return 0, err
@@ -32,6 +36,7 @@ func GetLastInsertIDUintWithError(result sql.Result, err error) (uint, error) {
 	return GetLastInsertIDUint(result)
 }
 
+// GetLastInsertIDInt64WithError checks a given error before calling GetLastInsertIDInt64.
 func GetLastInsertIDInt64WithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
@@ -39,6 +44,7 @@ func GetLastInsertIDInt64WithError(result sql.Result, err error) (int64, error) 
 	return result.LastInsertId()
 }
 
+// GetRowsAffectedWithError checks a given error before calling GetRowsAffected.
 func GetRowsAffectedWithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
@@ -46,6 +52,7 @@ func GetRowsAffectedWithError(result sql.Result, err error) (int64, error) {
 	return result.RowsAffected()
 }
 
+// GetRowsAffectedUint64WithError checks a given error before calling GetRowsAffectedUint64.
 func GetRowsAffectedUint64WithError(result sql.Result, err error) (uint64, error) {
 	if err != nil {
 		return 0, err
@@ -53,6 +60,7 @@ func GetRowsAffectedUint64WithError(result sql.Result, err error) (uint64, error
 	return GetRowsAffectedUint64(result)
 }
 
+// GetRowsAffectedIntWithError checks a given error before calling GetRowsAffectedInt.
 func GetRowsAffectedIntWithError(result sql.Result, err error) (int, error) {
 	if err != nil {
 		return 0, err
@@ -60,6 +68,7 @@ func GetRowsAffectedIntWithError(result sql.Result, err error) (int, error) {
 	return GetRowsAffectedInt(result)
 }
 
+// GetRowsAffectedUintWithError checks a given error before calling GetRowsAffectedUint.
 func GetRowsAffectedUintWithError(result sql.Result, err error) (uint, error) {
 	if err != nil {
 		return 0, err
@@ -67,6 +76,7 @@ func GetRowsAffectedUintWithError(result sql.Result, err error) (uint, error) {
 	return GetRowsAffectedUint(result)
 }
 
+// GetRowsAffectedInt64WithError checks a given error before calling GetRowsAffectedInt64.
 func GetRowsAffectedInt64WithError(result sql.Result, err error) (int64, error) {
 	if err != nil {
 		return 0, err
@@ -74,6 +84,7 @@ func GetRowsAffectedInt64WithError(result sql.Result, err error) (int64, error) 
 	return result.RowsAffected()
 }
 
+// CheckOneRowAffectedWithError checks a given error before calling CheckOneRowAffected.
 func CheckOneRowAffectedWithError(result sql.Result, err error) error {
 	if err != nil {
 		return err
