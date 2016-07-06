@@ -16,5 +16,8 @@ func SubStringToEnd(str string, endIndex int) string {
 }
 
 func Truncate(str string, length int) string {
+	if utf8.RuneCountInString(str) <= length {
+		return str
+	}
 	return SubStringToEnd(str, length)
 }

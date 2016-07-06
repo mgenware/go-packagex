@@ -48,4 +48,14 @@ func Test_Truncate(t *testing.T) {
 	if Truncate(" 一二三456", 3) != res {
 		t.Errorf("Expected %v", res)
 	}
+
+	res = "123一二三"
+	if Truncate("123一二三", 20) != res {
+		t.Errorf("Expected %v", res)
+	}
+
+	res = "123一二三"
+	if Truncate("123一二三", 6) != res {
+		t.Errorf("Expected %v", res)
+	}
 }
