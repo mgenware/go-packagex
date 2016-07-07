@@ -18,6 +18,19 @@ go get github.com/mgenware/go-packagex/strconvx
 Overview:
 * Quick `ParseXXX` functions without `base` or `bitSize` parameters.
 
+### stringsx
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/stringsx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/stringsx)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/stringsx
+```
+
+Overview:
+* `SubString`, `SubStringFromStart`, `SubStringToEnd`.
+* `Truncate`.
+
 ### mathx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/mathx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/mathx)
