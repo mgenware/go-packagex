@@ -59,3 +59,20 @@ func Test_Truncate(t *testing.T) {
 		t.Errorf("Expected %v", res)
 	}
 }
+
+func Test_Reverse(t *testing.T) {
+	res := "fedcba"
+	if Reverse("abcdef") != res {
+		t.Errorf("Expected %v", res)
+	}
+
+	res = "二一321"
+	if Reverse("123一二") != res {
+		t.Errorf("Expected %v", res)
+	}
+
+	res = "654三二一"
+	if Reverse("一二三456") != res {
+		t.Errorf("Expected %v", res)
+	}
+}

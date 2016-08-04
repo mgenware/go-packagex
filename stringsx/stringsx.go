@@ -27,3 +27,14 @@ func Truncate(str string, length int) string {
 	}
 	return SubStringToEnd(str, length)
 }
+
+// Reverse reverses the given string.
+func Reverse(str string) string {
+	chars := []rune(str)
+	for i, j := 0, len(chars)-1; i < j; {
+		chars[i], chars[j] = chars[j], chars[i]
+		i++
+		j--
+	}
+	return string(chars)
+}
