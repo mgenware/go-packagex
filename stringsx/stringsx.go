@@ -1,6 +1,10 @@
 package stringsx
 
-import "unicode/utf8"
+import (
+	"bytes"
+	"fmt"
+	"unicode/utf8"
+)
 
 // SubString returns a subset of a string with given startIndex and endIndex.
 // Note that endIndex is not included in returned substring.
@@ -37,4 +41,22 @@ func Reverse(str string) string {
 		j--
 	}
 	return string(chars)
+}
+
+// JoinAll concatenates the elements of a to create a single string with given separator string.
+func JoinAll(a []interface{}, sep string) string {
+	if len(a) == 0 {
+		return ""
+	}
+	if len(a) == 1 {
+		return fmt.Sprintf("%v", a[0])
+	}
+
+	buffer := &bytes.Buffer{}
+	buffer.WriteString(fmt.Sprintf("%v", a[0]))
+	for i := 1; i < len(a); i++ {
+		buffer.WriteString(sep)
+		buffer.WriteString(fmt.Sprintf("%v", a[i]))
+	}
+	return buffer.String()
 }

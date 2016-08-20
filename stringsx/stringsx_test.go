@@ -76,3 +76,15 @@ func Test_Reverse(t *testing.T) {
 		t.Errorf("Expected %v", res)
 	}
 }
+
+func Test_JoinAll(t *testing.T) {
+	res := "1,2,abc,<nil>"
+	if JoinAll([]interface{}{1, 2, "abc", nil}, ",") != res {
+		t.Errorf("Expected %v", res)
+	}
+
+	res = ""
+	if JoinAll([]interface{}{}, ",") != res {
+		t.Errorf("Expected %v", res)
+	}
+}
