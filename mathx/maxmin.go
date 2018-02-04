@@ -32,6 +32,14 @@ func MaxUint64(x, y uint64) uint64 {
 	return y
 }
 
+// MaxByte returns the larger of two byte numbers.
+func MaxByte(x, y byte) byte {
+	if x > y {
+		return x
+	}
+	return y
+}
+
 // MinInt returns the smaller of two int numbers.
 func MinInt(x, y int) int {
 	if x > y {
@@ -58,6 +66,14 @@ func MinUint(x, y uint) uint {
 
 // MinUint64 returns the smaller of two uint64 numbers.
 func MinUint64(x, y uint64) uint64 {
+	if x > y {
+		return y
+	}
+	return x
+}
+
+// MinByte returns the smaller of two byte numbers.
+func MinByte(x, y byte) byte {
 	if x > y {
 		return y
 	}

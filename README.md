@@ -41,7 +41,7 @@ go get github.com/mgenware/go-packagex/mathx
 ```
 
 Overview:
-* `Min`, `Max` for `int`, `int64`, `uint`, `uint64` types.
+* `Min`, `Max` for `int`, `int64`, `uint`, `uint64` and `byte` types.
 * `Abs` for `int` and `int64`.
 
 ### httpx

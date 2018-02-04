@@ -77,3 +77,21 @@ func TestMaxMinUint64(t *testing.T) {
 		errorf(t, x, r)
 	}
 }
+
+func TestMaxMinByte(t *testing.T) {
+	var x, y byte
+	x = 9
+	y = 255
+	if r := MaxByte(x, y); r != y {
+		errorf(t, y, r)
+	}
+	if r := MinByte(x, y); r != x {
+		errorf(t, x, r)
+	}
+	if r := MaxByte(x, x); r != x {
+		errorf(t, x, r)
+	}
+	if r := MinByte(x, x); r != x {
+		errorf(t, x, r)
+	}
+}
