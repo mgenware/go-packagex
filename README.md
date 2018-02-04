@@ -44,6 +44,19 @@ Overview:
 * `Min`, `Max` for `int`, `int64`, `uint`, `uint64` and `byte` types.
 * `Abs` for `int` and `int64`.
 
+### slicex
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/slicex?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/slicex)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/slicex
+```
+
+Overview:
+* Check for deep equality for slices (types supported: `byte`, `int`, `uint`, `int64`, `uint64`).
+
+
 ### httpx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/httpx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/httpx)
