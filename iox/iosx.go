@@ -14,20 +14,20 @@ func ReadFileText(file string) (string, error) {
 	return string(bytes), nil
 }
 
-// FileExist checks if a file exists.
-func FileExist(file string) bool {
+// IsFile checks if a file exists.
+func IsFile(file string) (bool, error) {
 	info, err := os.Stat(file)
 	if err != nil {
-		return false
+		return false, err
 	}
-	return !info.IsDir()
+	return !info.IsDir(), nil
 }
 
-// DirectoryExist checks if a directory exists.
-func DirectoryExist(dir string) bool {
+// IsDirectory checks if a directory exists.
+func IsDirectory(dir string) (bool, error) {
 	info, err := os.Stat(dir)
 	if err != nil {
-		return false
+		return false, err
 	}
-	return info.IsDir()
+	return info.IsDir(), nil
 }
