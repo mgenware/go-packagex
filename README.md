@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/mgenware/go-packagex.svg?branch=master)](http://travis-ci.org/mgenware/go-packagex)
 
-Extra helper methods for Go
+Extra helper methods for Go. Requires **Go 1.6+**.
 
 ## Packages
 
