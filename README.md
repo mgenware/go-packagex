@@ -56,6 +56,19 @@ go get github.com/mgenware/go-packagex/slicex
 Overview:
 * Check for deep equality for slices (types supported: `byte`, `int`, `uint`, `int64`, `uint64`).
 
+### iox
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/iox?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/iox)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/iox
+```
+
+Overview:
+* Read text file.
+* Check if a file/directory exists.
+
 
 ### httpx
 
