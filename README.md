@@ -108,6 +108,7 @@ go get github.com/mgenware/go-packagex/templatex
 ```
 
 Overview:
+* **Note that `templatex` replies on the `text/template`, not the `html/template` package.**
 * Template parsing helper methods.
 * Execute a template to string.
 
