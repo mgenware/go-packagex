@@ -98,5 +98,18 @@ Overview:
 * Limit number of rows affected.
 * Common interface definition for `database/sql` package.
 
+### templatex
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/templatex?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/templatex)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/templatex
+```
+
+Overview:
+* Template parsing helper methods.
+* Execute a template to string.
+
 # License
 MIT
