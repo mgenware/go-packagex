@@ -2,7 +2,7 @@ package stringsx
 
 import "testing"
 
-func Test_SubString(t *testing.T) {
+func TestSubString(t *testing.T) {
 	res := "b"
 	if SubString("abc", 1, 2) != res {
 		t.Errorf("Expected %v", res)
@@ -14,7 +14,7 @@ func Test_SubString(t *testing.T) {
 	}
 }
 
-func Test_SubStringFromStart(t *testing.T) {
+func TestSubStringFromStart(t *testing.T) {
 	res := "bcdef"
 	if SubStringFromStart("abcdef", 1) != res {
 		t.Errorf("Expected %v", res)
@@ -26,7 +26,7 @@ func Test_SubStringFromStart(t *testing.T) {
 	}
 }
 
-func Test_SubStringToEnd(t *testing.T) {
+func TestSubStringToEnd(t *testing.T) {
 	res := "a"
 	if SubStringToEnd("abcdef", 1) != res {
 		t.Errorf("Expected %v", res)
@@ -38,7 +38,7 @@ func Test_SubStringToEnd(t *testing.T) {
 	}
 }
 
-func Test_Truncate(t *testing.T) {
+func TestTruncate(t *testing.T) {
 	res := "a"
 	if Truncate("abcdef", 1) != res {
 		t.Errorf("Expected %v", res)
@@ -60,7 +60,7 @@ func Test_Truncate(t *testing.T) {
 	}
 }
 
-func Test_Reverse(t *testing.T) {
+func TestReverse(t *testing.T) {
 	res := "fedcba"
 	if Reverse("abcdef") != res {
 		t.Errorf("Expected %v", res)
@@ -77,7 +77,7 @@ func Test_Reverse(t *testing.T) {
 	}
 }
 
-func Test_JoinAll(t *testing.T) {
+func TestJoinAll(t *testing.T) {
 	res := "1,2,abc,<nil>"
 	if JoinAll([]interface{}{1, 2, "abc", nil}, ",") != res {
 		t.Errorf("Expected %v", res)
