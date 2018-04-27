@@ -7,6 +7,15 @@ func TestExecuteToString(t *testing.T) {
 	got := ExecuteToString(tpl, "1")
 	exp := "v:1"
 	if got != exp {
-		t.Errorf("Expected %v, got %v", "v:1", got)
+		t.Errorf("Expected %v, got %v", exp, got)
+	}
+}
+
+func TestMustParse(t *testing.T) {
+	tpl := MustParse("{{.}}_{{html .}}")
+	got := ExecuteToString(tpl, "<")
+	exp := "<_&lt;"
+	if got != exp {
+		t.Errorf("Expected %v, got %v", exp, got)
 	}
 }
