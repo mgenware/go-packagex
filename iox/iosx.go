@@ -14,8 +14,8 @@ func ReadFileText(file string) (string, error) {
 	return string(bytes), nil
 }
 
-// IsFile checks if a file exists.
-func IsFile(file string) (bool, error) {
+// FileExists checks if a file exists.
+func FileExists(file string) (bool, error) {
 	info, err := os.Stat(file)
 	if err != nil {
 		return false, err
@@ -23,11 +23,23 @@ func IsFile(file string) (bool, error) {
 	return !info.IsDir(), nil
 }
 
-// IsDirectory checks if a directory exists.
-func IsDirectory(dir string) (bool, error) {
+// IsFile returns true if path points to a file and false otherwise.
+func IsFile(path string) bool {
+	fileExists, _ := FileExists(path)
+	return fileExists
+}
+
+// DirectoryExists checks if a directory exists.
+func DirectoryExists(dir string) (bool, error) {
 	info, err := os.Stat(dir)
 	if err != nil {
 		return false, err
 	}
 	return info.IsDir(), nil
+}
+
+// IsDirectory returns true if path points to a directory and false otherwise.
+func IsDirectory(path string) bool {
+	fileExists, _ := DirectoryExists(path)
+	return fileExists
 }
