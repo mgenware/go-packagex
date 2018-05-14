@@ -21,3 +21,13 @@ func ToStringInt64(i int64) string {
 func ToStringUint64(i uint64) string {
 	return strconv.FormatUint(i, 10)
 }
+
+// ToStringFloat64 calls strconv.FormatFloat(f, 'f', -1, 64).
+func ToStringFloat64(f float64) string {
+	return strconv.FormatFloat(f, 'f', -1, 64)
+}
+
+// ToStringFloat32 calls return strconv.FormatFloat(f, 'f', -1, 32).
+func ToStringFloat32(f float64) string {
+	return strconv.FormatFloat(f, 'f', -1, 32)
+}
