@@ -19,7 +19,7 @@ func DeepEqualInt(a, b []int) bool {
 	return true
 }
 
-// DeepEqualUint tests for deep equality between two iint arrays.
+// DeepEqualUint tests for deep equality between two uint arrays.
 func DeepEqualUint(a, b []uint) bool {
 	if a == nil && b == nil {
 		return true
