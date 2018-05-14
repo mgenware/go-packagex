@@ -1,16 +1,41 @@
 package strconvx
 
-import "testing"
+import (
+	"fmt"
+	"math"
+	"testing"
+)
 
-func TestParseFloat(t *testing.T) {
-	if r, _ := ParseFloat("32"); r != 32 {
+func TestParseFloat64(t *testing.T) {
+	if r, _ := ParseFloat64("32"); r != float64(32) {
 		t.Errorf("Expected %v, got %v", float64(32), r)
 	}
-	if r, _ := ParseFloat("-32.003"); r != -32.003 {
+	if r, _ := ParseFloat64("-32.003"); r != float64(-32.003) {
 		t.Errorf("Expected %v, got %v", float64(-32.003), r)
 	}
-	if _, err := ParseFloat("aaa"); err == nil {
+	if _, err := ParseFloat64("aaa"); err == nil {
 		t.Error("Error expected")
+	}
+	if r, _ := ParseFloat64(fmt.Sprintf("%v", math.MaxFloat64)); r != math.MaxFloat64 {
+		t.Errorf("Expected %v, got %v", math.MaxFloat64, r)
+	}
+}
+
+func TestParseFloat32(t *testing.T) {
+	if r, _ := ParseFloat32("32"); r != float32(32) {
+		t.Errorf("Expected %v, got %v", float32(32), r)
+	}
+	if r, _ := ParseFloat32("-32.003"); r != -32.003 {
+		t.Errorf("Expected %v, got %v", float32(-32.003), r)
+	}
+	if _, err := ParseFloat32("aaa"); err == nil {
+		t.Error("Error expected")
+	}
+	if _, err := ParseFloat32(fmt.Sprintf("%v", math.MaxFloat64)); err == nil {
+		t.Error("Error expected")
+	}
+	if r, _ := ParseFloat32(fmt.Sprintf("%v", math.MaxFloat32)); r != math.MaxFloat32 {
+		t.Errorf("Expected %v, got %v", math.MaxFloat32, r)
 	}
 }
 

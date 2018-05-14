@@ -2,9 +2,18 @@ package strconvx
 
 import "strconv"
 
-// ParseFloat calls strconv.ParseFloat(s, 64).
-func ParseFloat(s string) (float64, error) {
+// ParseFloat64 calls strconv.ParseFloat(s, 64).
+func ParseFloat64(s string) (float64, error) {
 	return strconv.ParseFloat(s, 64)
+}
+
+// ParseFloat32 calls strconv.ParseFloat(s, 32).
+func ParseFloat32(s string) (float32, error) {
+	value, err := strconv.ParseFloat(s, 32)
+	if err != nil {
+		return float32(0), err
+	}
+	return float32(value), nil
 }
 
 // ParseInt calls strconv.Atoi(s).
