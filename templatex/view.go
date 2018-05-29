@@ -6,6 +6,9 @@ import (
 	"text/template"
 )
 
+// GlobalDevMode determines if view is reloaded each time Execute is called, and defaults to false. Set it to true in development mode in order to applies template file changes without needing to restart Go server.
+var GlobalDevMode = false
+
 // View wraps a Go text/template.Template object, providing ease of use.
 type View struct {
 	// template holds the internal Template object from "text/template".
@@ -15,7 +18,13 @@ type View struct {
 }
 
 // MustParseView loads a view from the given file, and panics if parsing failed.
-func MustParseView(file string, devMode bool) *View {
+func MustParseView(file string) *View {
+	t := mustParseTemplate(file)
+	return &View{template: t, file: file, devMode: GlobalDevMode}
+}
+
+// MustParseViewWithDevMode behaves like MustParseView, but allows user to override the devMode.
+func MustParseViewWithDevMode(file string, devMode bool) *View {
 	t := mustParseTemplate(file)
 	return &View{template: t, file: file, devMode: devMode}
 }
