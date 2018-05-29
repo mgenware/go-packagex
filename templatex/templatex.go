@@ -2,7 +2,6 @@ package templatex
 
 import (
 	"bytes"
-	"io/ioutil"
 	"text/template"
 )
 
@@ -13,11 +12,7 @@ func MustParse(s string) *template.Template {
 
 // MustParseFromFile reads a file from file parameter and calls MustParse. It panics when error occurs.
 func MustParseFromFile(file string) *template.Template {
-	bytes, err := ioutil.ReadFile(file)
-	if err != nil {
-		panic(err)
-	}
-	return MustParse(string(bytes))
+	return template.Must(template.New("T").ParseFiles(file))
 }
 
 // ExecuteToString executes a template with specified data and returns a string.
