@@ -21,11 +21,11 @@ func MustParseFromFile(file string) *template.Template {
 }
 
 // ExecuteToString executes a template with specified data and returns a string.
-func ExecuteToString(t *template.Template, data interface{}) string {
+func ExecuteToString(t *template.Template, data interface{}) (string, error) {
 	buffer := &bytes.Buffer{}
 	err := t.Execute(buffer, data)
 	if err != nil {
-		panic(err)
+		return "", err
 	}
-	return buffer.String()
+	return buffer.String(), nil
 }
