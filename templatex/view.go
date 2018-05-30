@@ -2,6 +2,7 @@ package templatex
 
 import (
 	"io"
+	"path/filepath"
 	"text/template"
 )
 
@@ -23,6 +24,11 @@ type View struct {
 // MustParseView loads a view from the given file, and panics if parsing failed.
 func MustParseView(file string) *View {
 	return MustParseViewWithDevMode(file, globalDevMode)
+}
+
+// MustParseViewFromDirectory joins the dir and the file arguments and calls MustParseView.
+func MustParseViewFromDirectory(dir, file string) *View {
+	return MustParseView(filepath.Join(dir, file))
 }
 
 // MustParseViewWithDevMode behaves like MustParseView, but allows user to override the devMode.
