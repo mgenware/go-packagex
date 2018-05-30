@@ -102,15 +102,16 @@ Overview:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/templatex?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/templatex)
 
+**Note that `templatex` is built upon the `text/template` package, not the `html/template`.**
+
 Installation:
 ```sh
 go get github.com/mgenware/go-packagex/templatex
 ```
 
 Overview:
-* **Note that `templatex` replies on the `text/template`, not the `html/template` package.**
-* Template parsing helper methods.
-* Execute a template to string.
+* Helpers for template parsing and executing.
+* A wrapper of text/template Template, providing reloading support.
 
 # License
 MIT
