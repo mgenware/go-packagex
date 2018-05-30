@@ -1,7 +1,6 @@
 package templatex
 
 import (
-	"bytes"
 	"io"
 	"text/template"
 )
@@ -16,14 +15,14 @@ type View struct {
 
 // MustParseView loads a view from the given file, and panics if parsing failed.
 func MustParseView(file string, devMode bool) *View {
-	t := mustParseTemplate(file)
+	t := MustParseFile(file)
 	return &View{template: t, file: file, devMode: devMode}
 }
 
 // Execute applies this view to the given data object.
 func (view *View) Execute(wr io.Writer, data interface{}) error {
 	if view.devMode {
-		view.template = mustParseTemplate(view.file)
+		view.template = MustParseFile(view.file)
 	}
 
 	return view.template.Execute(wr, data)
@@ -31,14 +30,5 @@ func (view *View) Execute(wr io.Writer, data interface{}) error {
 
 // ExecuteToString applies this view to the given data object, and returns the result as a string.
 func (view *View) ExecuteToString(data interface{}) (string, error) {
-	buffer := &bytes.Buffer{}
-	err := view.Execute(buffer, data)
-	if err != nil {
-		return "", err
-	}
-	return buffer.String(), nil
-}
-
-func mustParseTemplate(file string) *template.Template {
-	return template.Must(template.New("T").ParseFiles(file))
+	return ExecuteToString(view.template, data)
 }
