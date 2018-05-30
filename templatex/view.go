@@ -49,3 +49,16 @@ func (view *View) Execute(wr io.Writer, data interface{}) error {
 func (view *View) ExecuteToString(data interface{}) (string, error) {
 	return ExecuteToString(view.template, data)
 }
+
+// MustExecute calls Execute and panics if any error occurs.
+func (view *View) MustExecute(wr io.Writer, data interface{}) {
+	err := view.Execute(wr, data)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// MustExecuteToString calls ExecuteToString and panics if any error occurs.
+func (view *View) MustExecuteToString(data interface{}) string {
+	return MustExecuteToString(view.template, data)
+}

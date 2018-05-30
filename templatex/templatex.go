@@ -29,3 +29,12 @@ func ExecuteToString(t *template.Template, data interface{}) (string, error) {
 	}
 	return buffer.String(), nil
 }
+
+// MustExecuteToString calls ExecuteToString and panics if any error occurs.
+func MustExecuteToString(t *template.Template, data interface{}) string {
+	result, err := ExecuteToString(t, data)
+	if err != nil {
+		panic(err)
+	}
+	return result
+}
