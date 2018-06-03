@@ -111,7 +111,7 @@ go get github.com/mgenware/go-packagex/templatex
 
 Overview:
 * Helpers for template parsing and executing.
-* A wrapper of text/template Template, providing reloading support.
+* A wrapper of text/template Template, which can load template from a file and provide optional reloading support (useful in development mode).
 
 # License
 MIT
