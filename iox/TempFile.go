@@ -35,6 +35,10 @@ func (t *TempFile) File() *os.File {
 	return t.file
 }
 
+func (t *TempFile) Path() string {
+	return t.file.Name()
+}
+
 func (t *TempFile) WriteContent(content []byte) error {
 	file := t.file
 	if _, err := file.Write(content); err != nil {
