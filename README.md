@@ -28,7 +28,7 @@ go get github.com/mgenware/go-packagex/stringsx
 ```
 
 Overview:
-* `SubString`, `SubStringFromStart`, `SubStringToEnd`.
+* `SubString` for Unicode chars(`rune`), `SubStringFromStart`, `SubStringToEnd`.
 * `Truncate`.
 
 ### mathx
