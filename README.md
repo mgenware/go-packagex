@@ -82,13 +82,13 @@ go get github.com/mgenware/go-packagex/httpx
 Overview:
 * Set HTTP response `Content-Type` to common MIME types or from an file extension.
 
-### database/sqlx
+### dbx
 
-[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/database/sqlx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/database/sqlx)
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/dbx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/dbx)
 
 Installation:
 ```sh
-go get github.com/mgenware/go-packagex/database/sqlx
+go get github.com/mgenware/go-packagex/dbx
 ```
 
 Overview:
