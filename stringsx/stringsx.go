@@ -49,14 +49,14 @@ func JoinAll(a []interface{}, sep string) string {
 		return ""
 	}
 	if len(a) == 1 {
-		return fmt.Sprintf("%v", a[0])
+		return fmt.Sprint(a[0])
 	}
 
 	buffer := &bytes.Buffer{}
-	buffer.WriteString(fmt.Sprintf("%v", a[0]))
+	buffer.WriteString(fmt.Sprint(a[0]))
 	for i := 1; i < len(a); i++ {
 		buffer.WriteString(sep)
-		buffer.WriteString(fmt.Sprintf("%v", a[i]))
+		buffer.WriteString(fmt.Sprint(a[i]))
 	}
 	return buffer.String()
 }
