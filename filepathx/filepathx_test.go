@@ -1,6 +1,10 @@
 package filepathx
 
-import "testing"
+import (
+	"path/filepath"
+	"strings"
+	"testing"
+)
 
 func errorf(t *testing.T, expected interface{}, got interface{}) {
 	t.Errorf("Expected %v, got %v", expected, got)
@@ -32,5 +36,24 @@ func TestTrimExt(t *testing.T) {
 	exp = ""
 	if got != exp {
 		errorf(t, exp, got)
+	}
+}
+
+func TestTempFilePath(t *testing.T) {
+	var got string
+
+	got = TempFilePath("", "")
+	if !strings.Contains(got, "tmp-") {
+		errorf(t, "contains tmp-", got)
+	}
+
+	got = TempFilePath(".jpeg", "")
+	if filepath.Ext(got) != ".jpeg" {
+		errorf(t, "has a jpeg ext", got)
+	}
+
+	got = TempFilePath("", "haha")
+	if !strings.Contains(got, "haha-") {
+		errorf(t, "contains haha-", got)
 	}
 }
