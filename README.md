@@ -116,5 +116,18 @@ Overview:
 * Helpers for template parsing and executing.
 * A wrapper of text/template Template, which can load template from a file and provide optional reloading support (useful in development mode).
 
+### jsonx
+
+[![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/jsonx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/jsonx)
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex/jsonx
+```
+
+Overview:
+* Fetch values of various types from a loosely typed map `map[string]interface{}`.
+* Helper to marshal a loosely typed map `map[string]interface{}` from an array of bytes.
+
 # License
 MIT
