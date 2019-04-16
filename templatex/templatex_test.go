@@ -1,6 +1,10 @@
 package templatex
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/mgenware/go-packagex/test"
+)
 
 func TestExecuteToString(t *testing.T) {
 	tpl := MustParse("v:{{.}}")
@@ -9,9 +13,7 @@ func TestExecuteToString(t *testing.T) {
 		panic(err)
 	}
 	exp := "v:1"
-	if got != exp {
-		t.Errorf("Expected %v, got %v", exp, got)
-	}
+	test.Compare(t, exp, got)
 }
 
 func TestMustParse(t *testing.T) {
@@ -21,7 +23,5 @@ func TestMustParse(t *testing.T) {
 		panic(err)
 	}
 	exp := "<_&lt;"
-	if got != exp {
-		t.Errorf("Expected %v, got %v", exp, got)
-	}
+	test.Compare(t, exp, got)
 }

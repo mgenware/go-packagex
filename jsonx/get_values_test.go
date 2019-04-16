@@ -17,57 +17,33 @@ func init() {
 }
 
 func TestGetStringOrDefault(t *testing.T) {
-	if val := GetStringOrDefault(sampleDict, "s"); val != "haha" {
-		t.Error("value should be haha")
-	}
-	if val := GetStringOrDefault(sampleDict, "_"); val != "" {
-		t.Error("value should be <empty>")
-	}
+	test.Compare(t, "haha", GetStringOrDefault(sampleDict, "s"))
+	test.Compare(t, "", GetStringOrDefault(sampleDict, "_"))
 }
 
 func TestGetBoolOrDefault(t *testing.T) {
-	if val := GetBoolOrDefault(sampleDict, "b"); val != true {
-		t.Error("value should be true")
-	}
-	if val := GetBoolOrDefault(sampleDict, "_"); val != false {
-		t.Error("value should be false")
-	}
+	test.Compare(t, true, GetBoolOrDefault(sampleDict, "b"))
+	test.Compare(t, false, GetBoolOrDefault(sampleDict, "_"))
 }
 
 func TestGetIntOrDefault(t *testing.T) {
-	if val := GetIntOrDefault(sampleDict, "nn"); val != -1 {
-		t.Error("value should be -1")
-	}
-	if val := GetIntOrDefault(sampleDict, "_"); val != 0 {
-		t.Error("value should be 0")
-	}
+	test.Compare(t, -1, GetIntOrDefault(sampleDict, "nn"))
+	test.Compare(t, 0, GetIntOrDefault(sampleDict, "_"))
 }
 
 func TestGetUintOrDefault(t *testing.T) {
-	if val := GetUintOrDefault(sampleDict, "pn"); val != 123 {
-		t.Error("value should be 123")
-	}
-	if val := GetUintOrDefault(sampleDict, "_"); val != 0 {
-		t.Error("value should be 0")
-	}
+	test.Compare(t, uint(123), GetUintOrDefault(sampleDict, "pn"))
+	test.Compare(t, uint(0), GetUintOrDefault(sampleDict, "_"))
 }
 
 func TestGetInt64OrDefault(t *testing.T) {
-	if val := GetInt64OrDefault(sampleDict, "nn"); val != -1 {
-		t.Error("value should be -1")
-	}
-	if val := GetInt64OrDefault(sampleDict, "_"); val != 0 {
-		t.Error("value should be 0")
-	}
+	test.Compare(t, int64(-1), GetInt64OrDefault(sampleDict, "nn"))
+	test.Compare(t, int64(0), GetInt64OrDefault(sampleDict, "_"))
 }
 
 func TestGetUint64OrDefault(t *testing.T) {
-	if val := GetUint64OrDefault(sampleDict, "pn"); val != 123 {
-		t.Error("value should be 123")
-	}
-	if val := GetUint64OrDefault(sampleDict, "_"); val != 0 {
-		t.Error("value should be 0")
-	}
+	test.Compare(t, uint64(123), GetUint64OrDefault(sampleDict, "pn"))
+	test.Compare(t, uint64(0), GetUint64OrDefault(sampleDict, "_"))
 }
 
 func TestGetDictOrDefault(t *testing.T) {
