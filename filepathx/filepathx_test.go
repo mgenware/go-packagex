@@ -5,7 +5,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mgenware/go-packagex/test"
+	"github.com/mgenware/go-packagex/v5/test"
 )
 
 func errorf(t *testing.T, expected interface{}, got interface{}) {

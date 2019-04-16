@@ -3,7 +3,7 @@ package stringsx
 import (
 	"testing"
 
-	"github.com/mgenware/go-packagex/test"
+	"github.com/mgenware/go-packagex/v5/test"
 )
 
 func TestSubString(t *testing.T) {

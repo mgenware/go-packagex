@@ -3,7 +3,7 @@ package templatex
 import (
 	"testing"
 
-	"github.com/mgenware/go-packagex/test"
+	"github.com/mgenware/go-packagex/v5/test"
 )
 
 func TestExecuteToString(t *testing.T) {
