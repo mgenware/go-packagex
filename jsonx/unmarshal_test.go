@@ -2,6 +2,8 @@ package jsonx
 
 import (
 	"testing"
+
+	"github.com/mgenware/go-packagex/v5/test"
 )
 
 func TestUnmarshalBytesToDict(t *testing.T) {
@@ -10,7 +12,8 @@ func TestUnmarshalBytesToDict(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	if len(dict) != 2 || dict["a"] != float64(123) || dict["b"] != false {
-		t.Errorf("Wrong dict")
-	}
+	want := make(map[string]interface{})
+	want["a"] = float64(123)
+	want["b"] = false
+	test.Compare(t, want, dict)
 }
