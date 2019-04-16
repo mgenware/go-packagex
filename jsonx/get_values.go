@@ -45,3 +45,33 @@ func GetBoolOrDefault(dict map[string]interface{}, key string) bool {
 	val, _ := dict[key].(bool)
 	return val
 }
+
+// GetDictOrDefault retrieves the value for the given key in the dictionary, or nil if it does not exist.
+func GetDictOrDefault(dict map[string]interface{}, key string) map[string]interface{} {
+	val, _ := dict[key].(map[string]interface{})
+	return val
+}
+
+// GetDictOrEmpty retrieves the value for the given key in the dictionary, or an empty dictionary if it does not exist.
+func GetDictOrEmpty(dict map[string]interface{}, key string) map[string]interface{} {
+	val := GetDictOrDefault(dict, key)
+	if val == nil {
+		return make(map[string]interface{})
+	}
+	return val
+}
+
+// GetArrayOrDefault retrieves the value for the given key in the dictionary, or nil if it does not exist.
+func GetArrayOrDefault(dict map[string]interface{}, key string) []interface{} {
+	val, _ := dict[key].([]interface{})
+	return val
+}
+
+// GetArrayOrEmpty retrieves the value for the given key in the dictionary, or an empty dictionary if it does not exist.
+func GetArrayOrEmpty(dict map[string]interface{}, key string) []interface{} {
+	val := GetArrayOrDefault(dict, key)
+	if val == nil {
+		return make([]interface{}, 0)
+	}
+	return val
+}
