@@ -4,9 +4,6 @@
 
 Extra helpers for Go. **Go 1.6+**. 
 
-### Go Module
-We have intentionally removed the `go.mod` file, because we don't want users to change their import paths.
-
 ## Packages
 
 ### strconvx
