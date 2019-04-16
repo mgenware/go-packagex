@@ -2,9 +2,17 @@
 
 [![Build Status](https://travis-ci.org/mgenware/go-packagex.svg?branch=master)](http://travis-ci.org/mgenware/go-packagex)
 
-Extra helpers for Go. Supported Go versions:
-* v5 (latest): Go 1.11+
-* v1-v4: Go 1.6+
+Extra helpers for Go (Go 1.11+), uses Go module.
+
+Installation:
+```sh
+go get github.com/mgenware/go-packagex
+```
+
+Import:
+```go
+import "github.com/mgenware/go-packagex/v5/<sub_package>"
+```
 
 ## Packages
 
@@ -12,22 +20,12 @@ Extra helpers for Go. Supported Go versions:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/strconvx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/strconvx)
 
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/strconvx
-```
-
 Overview:
 * Quick `ParseXXX` functions without `base` or `bitSize` parameters.
 
 ### stringsx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/stringsx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/stringsx)
-
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/stringsx
-```
 
 Overview:
 * `SubString` for Unicode chars(`rune`), `SubStringFromStart`, `SubStringToEnd`.
@@ -37,11 +35,6 @@ Overview:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/mathx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/mathx)
 
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/mathx
-```
-
 Overview:
 * `Min`, `Max` for `int`, `int64`, `uint`, `uint64` and `byte` types.
 * `Abs` for `int` and `int64`.
@@ -50,22 +43,12 @@ Overview:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/slicex?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/slicex)
 
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/slicex
-```
-
 Overview:
 * Check for deep equality for slices (types supported: `byte`, `int`, `uint`, `int64`, `uint64`).
 
 ### iox
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/iox?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/iox)
-
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/iox
-```
 
 Overview:
 * Read text file.
@@ -76,22 +59,12 @@ Overview:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/httpx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/httpx)
 
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/httpx
-```
-
 Overview:
 * Set HTTP response `Content-Type` to common MIME types or from an file extension.
 
 ### dbx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/dbx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/dbx)
-
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/dbx
-```
 
 Overview:
 * Helper function to start a database transaction.
@@ -106,11 +79,6 @@ Overview:
 
 **Note that `templatex` is built upon the `text/template` package, not the `html/template`.**
 
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/templatex
-```
-
 Overview:
 * Helpers for template parsing and executing.
 * A wrapper of text/template Template, which can load template from a file and provide optional reloading support (useful in development mode).
@@ -118,11 +86,6 @@ Overview:
 ### jsonx
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/jsonx?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/jsonx)
-
-Installation:
-```sh
-go get github.com/mgenware/go-packagex/jsonx
-```
 
 Overview:
 * Fetch values of various types from a loosely typed map `map[string]interface{}`.
