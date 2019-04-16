@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/mgenware/go-packagex.svg?branch=master)](http://travis-ci.org/mgenware/go-packagex)
 
-Extra helpers for Go. **Go 1.6+**. 
+Extra helpers for Go. Supported Go versions:
+* v5 (latest): Go 1.11+
+* v1-v4: Go 1.6+
 
 ## Packages
 
