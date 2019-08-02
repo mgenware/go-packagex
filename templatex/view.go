@@ -2,8 +2,10 @@ package templatex
 
 import (
 	"io"
+	"os"
 	"path/filepath"
 	"text/template"
+	"time"
 )
 
 // View wraps a Go text/template.Template object, providing ease of use.
@@ -11,7 +13,9 @@ type View struct {
 	// Use Template() to access the internal template data, which takes devMode into account.
 	internalTemplate *template.Template
 	file             string
-	devMode          bool
+	// Used in dev mode to detect file changes.
+	lastModified time.Time
+	devMode      bool
 }
 
 // MustParseView loads a view from the given file, and panics if parsing failed.
@@ -51,7 +55,17 @@ func (view *View) MustExecuteToString(data interface{}) string {
 // Template returns the underlying template.Template.
 func (view *View) Template() *template.Template {
 	if view.devMode {
-		view.internalTemplate = MustParseFile(view.file)
+		// Get the last modified time
+		stat, err := os.Stat(view.file)
+		// Can panic in dev mode
+		if err != nil {
+			panic(err)
+		}
+		modTime := stat.ModTime()
+		if !modTime.Equal(view.lastModified) {
+			view.internalTemplate = MustParseFile(view.file)
+			view.lastModified = modTime
+		}
 	}
 	return view.internalTemplate
 }
