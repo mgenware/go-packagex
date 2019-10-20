@@ -7,8 +7,8 @@ import (
 )
 
 // MustParse behaves like template.Parse, but panics if any error happens.
-func MustParse(s string) *template.Template {
-	return template.Must(template.New("T").Parse(s))
+func MustParse(name, s string) *template.Template {
+	return template.Must(template.New(name).Parse(s))
 }
 
 // MustParseFile reads a file from file parameter and calls MustParse. It panics when error occurs.
@@ -17,7 +17,7 @@ func MustParseFile(file string) *template.Template {
 	if err != nil {
 		panic(err)
 	}
-	return MustParse(string(content))
+	return MustParse("File "+file, string(content))
 }
 
 // ExecuteToString executes a template with specified data and returns a string.

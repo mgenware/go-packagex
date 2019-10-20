@@ -7,7 +7,7 @@ import (
 )
 
 func TestExecuteToString(t *testing.T) {
-	tpl := MustParse("v:{{.}}")
+	tpl := MustParse("T", "v:{{.}}")
 	got, err := ExecuteToString(tpl, "1")
 	if err != nil {
 		panic(err)
@@ -17,7 +17,7 @@ func TestExecuteToString(t *testing.T) {
 }
 
 func TestMustParse(t *testing.T) {
-	tpl := MustParse("{{.}}_{{html .}}")
+	tpl := MustParse("T", "{{.}}_{{html .}}")
 	got, err := ExecuteToString(tpl, "<")
 	if err != nil {
 		panic(err)
