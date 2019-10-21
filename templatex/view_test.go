@@ -3,6 +3,7 @@ package templatex
 import (
 	"io/ioutil"
 	"testing"
+	"time"
 
 	"github.com/mgenware/go-packagex/v5/iox"
 	"github.com/mgenware/go-packagex/v5/test"
@@ -28,6 +29,7 @@ func TestDevView(t *testing.T) {
 	v := MustParseView(file, true)
 	got := v.MustExecuteToString("haha")
 	test.Compare(t, "1haha", got)
+	time.Sleep(time.Second)
 	ioutil.WriteFile(file, []byte("2{{.}}"), 0644)
 	got = v.MustExecuteToString("haha")
 	test.Compare(t, "2haha", got)
