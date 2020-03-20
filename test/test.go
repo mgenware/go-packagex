@@ -14,3 +14,9 @@ func Compare(t *testing.T, want, got interface{}) {
 		t.Fatalf("Mismatch (-want +got):\n%s", diff)
 	}
 }
+
+func PanicIfErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
