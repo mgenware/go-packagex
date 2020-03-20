@@ -14,6 +14,25 @@ func ReadFileText(file string) (string, error) {
 	return string(bytes), nil
 }
 
+func pathExistsCore(path string) (os.FileInfo, error) {
+	if fileInfo, err := os.Stat(path); err == nil {
+		return fileInfo, nil
+	} else if os.IsNotExist(err) {
+		return nil, nil
+	} else {
+		return nil, err
+	}
+}
+
+// PathExists checks if a specified path exists.
+func PathExists(path string) (bool, error) {
+	info, err := pathExistsCore(path)
+	if err != nil {
+		return false, err
+	}
+	return info != nil, nil
+}
+
 // FileExists checks if a file exists.
 func FileExists(file string) (bool, error) {
 	info, err := os.Stat(file)
