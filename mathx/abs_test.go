@@ -1,35 +1,19 @@
 package mathx
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/mgenware/go-packagex/v5/test"
+)
 
 func TestAbsInt(t *testing.T) {
-	var x int
-	x = -1
-	if r := AbsInt(x); r != 1 {
-		errorf(t, 1, r)
-	}
-	x = 12
-	if r := AbsInt(x); r != 12 {
-		errorf(t, 12, r)
-	}
-	x = 0
-	if r := AbsInt(x); r != 0 {
-		errorf(t, 0, r)
-	}
+	test.Compare(t, 1, AbsInt(-1))
+	test.Compare(t, 12, AbsInt(12))
+	test.Compare(t, 0, AbsInt(0))
 }
 
 func TestAbsInt64(t *testing.T) {
-	var x int64
-	x = -1
-	if r := AbsInt64(x); r != 1 {
-		errorf(t, 1, r)
-	}
-	x = 12
-	if r := AbsInt64(x); r != 12 {
-		errorf(t, 12, r)
-	}
-	x = 0
-	if r := AbsInt64(x); r != 0 {
-		errorf(t, 0, r)
-	}
+	test.Compare(t, int64(1), AbsInt64(-1))
+	test.Compare(t, int64(12), AbsInt64(12))
+	test.Compare(t, int64(0), AbsInt64(0))
 }
