@@ -4,21 +4,25 @@ import (
 	"fmt"
 	"math"
 	"testing"
+
+	"github.com/mgenware/go-packagex/v5/test"
 )
 
 func TestParseFloat64(t *testing.T) {
-	if r, _ := ParseFloat64("32"); r != float64(32) {
-		t.Errorf("Expected %v, got %v", float64(32), r)
-	}
-	if r, _ := ParseFloat64("-32.003"); r != float64(-32.003) {
-		t.Errorf("Expected %v, got %v", float64(-32.003), r)
-	}
-	if _, err := ParseFloat64("aaa"); err == nil {
-		t.Error("Error expected")
-	}
-	if r, _ := ParseFloat64(fmt.Sprintf("%v", math.MaxFloat64)); r != math.MaxFloat64 {
-		t.Errorf("Expected %v, got %v", math.MaxFloat64, r)
-	}
+	r, err := ParseFloat64("32")
+	test.PanicIfErr(err)
+	test.Compare(t, float64(32), r)
+
+	r, err = ParseFloat64("-32.003")
+	test.PanicIfErr(err)
+	test.Compare(t, float64(-32.003), r)
+
+	r, err = ParseFloat64("aaa")
+	test.PanicIfNoErr(err)
+
+	r, err = ParseFloat64(fmt.Sprintf("%v", math.MaxFloat64))
+	test.PanicIfErr(err)
+	test.Compare(t, math.MaxFloat64, r)
 }
 
 func TestParseFloat32(t *testing.T) {

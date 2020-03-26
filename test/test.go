@@ -15,8 +15,16 @@ func Compare(t *testing.T, want, got interface{}) {
 	}
 }
 
+// PanicIfErr panics if the given error is not nil.
 func PanicIfErr(err error) {
 	if err != nil {
 		panic(err)
+	}
+}
+
+// PanicIfNoErr panics if the given error is nil.
+func PanicIfNoErr(err error) {
+	if err == nil {
+		panic("Expected error")
 	}
 }
