@@ -26,10 +26,3 @@ func PanicIfErr(err error) {
 		panic(err)
 	}
 }
-
-// PanicIfNoErr panics if the given error is nil.
-func PanicIfNoErr(err error) {
-	if err == nil {
-		panic("Expected error")
-	}
-}

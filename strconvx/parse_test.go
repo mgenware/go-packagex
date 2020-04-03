@@ -18,7 +18,9 @@ func TestParseFloat64(t *testing.T) {
 	test.Compare(t, float64(-32.003), r)
 
 	r, err = ParseFloat64("aaa")
-	test.PanicIfNoErr(err)
+	if err == nil {
+		panic("Expected error")
+	}
 
 	r, err = ParseFloat64(fmt.Sprintf("%v", math.MaxFloat64))
 	test.PanicIfErr(err)
