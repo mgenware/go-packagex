@@ -17,33 +17,33 @@ func init() {
 }
 
 func TestGetStringOrDefault(t *testing.T) {
-	test.Compare(t, "haha", GetStringOrDefault(sampleDict, "s"))
-	test.Compare(t, "", GetStringOrDefault(sampleDict, "_"))
+	test.Assert(t, GetStringOrDefault(sampleDict, "s"), "haha")
+	test.Assert(t, GetStringOrDefault(sampleDict, "_"), "")
 }
 
 func TestGetBoolOrDefault(t *testing.T) {
-	test.Compare(t, true, GetBoolOrDefault(sampleDict, "b"))
-	test.Compare(t, false, GetBoolOrDefault(sampleDict, "_"))
+	test.Assert(t, GetBoolOrDefault(sampleDict, "b"), true)
+	test.Assert(t, GetBoolOrDefault(sampleDict, "_"), false)
 }
 
 func TestGetIntOrDefault(t *testing.T) {
-	test.Compare(t, -1, GetIntOrDefault(sampleDict, "nn"))
-	test.Compare(t, 0, GetIntOrDefault(sampleDict, "_"))
+	test.Assert(t, GetIntOrDefault(sampleDict, "nn"), -1)
+	test.Assert(t, GetIntOrDefault(sampleDict, "_"), 0)
 }
 
 func TestGetUintOrDefault(t *testing.T) {
-	test.Compare(t, uint(123), GetUintOrDefault(sampleDict, "pn"))
-	test.Compare(t, uint(0), GetUintOrDefault(sampleDict, "_"))
+	test.Assert(t, GetUintOrDefault(sampleDict, "pn"), uint(123))
+	test.Assert(t, GetUintOrDefault(sampleDict, "_"), uint(0))
 }
 
 func TestGetInt64OrDefault(t *testing.T) {
-	test.Compare(t, int64(-1), GetInt64OrDefault(sampleDict, "nn"))
-	test.Compare(t, int64(0), GetInt64OrDefault(sampleDict, "_"))
+	test.Assert(t, GetInt64OrDefault(sampleDict, "nn"), int64(-1))
+	test.Assert(t, GetInt64OrDefault(sampleDict, "_"), int64(0))
 }
 
 func TestGetUint64OrDefault(t *testing.T) {
-	test.Compare(t, uint64(123), GetUint64OrDefault(sampleDict, "pn"))
-	test.Compare(t, uint64(0), GetUint64OrDefault(sampleDict, "_"))
+	test.Assert(t, GetUint64OrDefault(sampleDict, "pn"), uint64(123))
+	test.Assert(t, GetUint64OrDefault(sampleDict, "_"), uint64(0))
 }
 
 func TestGetDictOrDefault(t *testing.T) {
@@ -51,9 +51,9 @@ func TestGetDictOrDefault(t *testing.T) {
 	d2 := make(map[string]interface{})
 	d2["a"] = true
 	d2["b"] = []interface{}{"element1", "element2"}
-	test.Compare(t, d2, d1)
+	test.Assert(t, d1, d2)
 
-	test.Compare(t, map[string]interface{}(nil), GetDictOrDefault(sampleDict, "arr"))
+	test.Assert(t, GetDictOrDefault(sampleDict, "arr"), map[string]interface{}(nil))
 }
 
 func TestGetDictOrEmpty(t *testing.T) {
@@ -61,23 +61,23 @@ func TestGetDictOrEmpty(t *testing.T) {
 	d2 := make(map[string]interface{})
 	d2["a"] = true
 	d2["b"] = []interface{}{"element1", "element2"}
-	test.Compare(t, d2, d1)
+	test.Assert(t, d1, d2)
 
-	test.Compare(t, make(map[string]interface{}), GetDictOrEmpty(sampleDict, "arr"))
+	test.Assert(t, GetDictOrEmpty(sampleDict, "arr"), make(map[string]interface{}))
 }
 
 func TestGetArrayOrDefault(t *testing.T) {
 	d1 := GetArrayOrDefault(sampleDict, "arr")
 	d2 := []interface{}{float64(1), float64(2), "haha"}
-	test.Compare(t, d2, d1)
+	test.Assert(t, d1, d2)
 
-	test.Compare(t, []interface{}(nil), GetArrayOrDefault(sampleDict, "dict"))
+	test.Assert(t, GetArrayOrDefault(sampleDict, "dict"), []interface{}(nil))
 }
 
 func TestGetArrayOrEmpty(t *testing.T) {
 	d1 := GetArrayOrEmpty(sampleDict, "arr")
 	d2 := []interface{}{float64(1), float64(2), "haha"}
-	test.Compare(t, d2, d1)
+	test.Assert(t, d1, d2)
 
-	test.Compare(t, make([]interface{}, 0), GetArrayOrEmpty(sampleDict, "dict"))
+	test.Assert(t, GetArrayOrEmpty(sampleDict, "dict"), make([]interface{}, 0))
 }

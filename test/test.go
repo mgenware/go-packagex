@@ -7,17 +7,12 @@ import (
 	"github.com/google/go-cmp/cmp"
 )
 
-// Compare compares the given two values, and make testing fail if they are not equivalent.
-func Compare(t *testing.T, want, got interface{}) {
+// Assert compares the given two values, and make testing fail if they are not equivalent.
+func Assert(t *testing.T, got, want interface{}) {
 	if diff := cmp.Diff(want, got); diff != "" {
 		debug.PrintStack()
 		t.Fatalf("Mismatch (-want +got):\n%s", diff)
 	}
-}
-
-// Assert compares the given two values, and make testing fail if they are not equivalent.
-func Assert(t *testing.T, got, want interface{}) {
-	Compare(t, want, got)
 }
 
 // PanicIfErr panics if the given error is not nil.

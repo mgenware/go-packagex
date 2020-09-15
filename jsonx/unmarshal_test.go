@@ -15,5 +15,5 @@ func TestUnmarshalBytesToDict(t *testing.T) {
 	want := make(map[string]interface{})
 	want["a"] = float64(123)
 	want["b"] = false
-	test.Compare(t, want, dict)
+	test.Assert(t, dict, want)
 }

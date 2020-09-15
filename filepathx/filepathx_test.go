@@ -18,19 +18,19 @@ func TestTrimExt(t *testing.T) {
 
 	got = TrimExt("a.json")
 	exp = "a"
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 
 	got = TrimExt("abc")
 	exp = "abc"
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 
 	got = TrimExt("a.json.x.yy")
 	exp = "a.json.x"
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 
 	got = TrimExt(".js")
 	exp = ""
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 }
 
 func TestTempFilePath(t *testing.T) {

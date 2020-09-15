@@ -18,19 +18,19 @@ func TestView(t *testing.T) {
 	file := newViewFile()
 	v := MustParseView(file, false)
 	got := v.MustExecuteToString("haha")
-	test.Compare(t, "1haha", got)
+	test.Assert(t, got, "1haha")
 	ioutil.WriteFile(file, []byte("2{{.}}"), 0644)
 	got = v.MustExecuteToString("haha")
-	test.Compare(t, "1haha", got)
+	test.Assert(t, got, "1haha")
 }
 
 func TestDevView(t *testing.T) {
 	file := newViewFile()
 	v := MustParseView(file, true)
 	got := v.MustExecuteToString("haha")
-	test.Compare(t, "1haha", got)
+	test.Assert(t, got, "1haha")
 	time.Sleep(time.Second)
 	ioutil.WriteFile(file, []byte("2{{.}}"), 0644)
 	got = v.MustExecuteToString("haha")
-	test.Compare(t, "2haha", got)
+	test.Assert(t, got, "2haha")
 }

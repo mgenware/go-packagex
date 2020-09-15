@@ -13,7 +13,7 @@ func TestExecuteToString(t *testing.T) {
 		panic(err)
 	}
 	exp := "v:1"
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 }
 
 func TestMustParse(t *testing.T) {
@@ -23,5 +23,5 @@ func TestMustParse(t *testing.T) {
 		panic(err)
 	}
 	exp := "<_&lt;"
-	test.Compare(t, exp, got)
+	test.Assert(t, got, exp)
 }

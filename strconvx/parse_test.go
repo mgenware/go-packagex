@@ -11,11 +11,11 @@ import (
 func TestParseFloat64(t *testing.T) {
 	r, err := ParseFloat64("32")
 	test.PanicIfErr(err)
-	test.Compare(t, float64(32), r)
+	test.Assert(t, r, float64(32))
 
 	r, err = ParseFloat64("-32.003")
 	test.PanicIfErr(err)
-	test.Compare(t, float64(-32.003), r)
+	test.Assert(t, r, float64(-32.003))
 
 	r, err = ParseFloat64("aaa")
 	if err == nil {
@@ -24,7 +24,7 @@ func TestParseFloat64(t *testing.T) {
 
 	r, err = ParseFloat64(fmt.Sprintf("%v", math.MaxFloat64))
 	test.PanicIfErr(err)
-	test.Compare(t, math.MaxFloat64, r)
+	test.Assert(t, r, math.MaxFloat64)
 }
 
 func TestParseFloat32(t *testing.T) {
