@@ -1,6 +1,7 @@
 package templatex
 
 import (
+	"html/template"
 	"testing"
 
 	"github.com/mgenware/go-packagex/v5/test"
@@ -16,12 +17,18 @@ func TestExecuteToString(t *testing.T) {
 	test.Assert(t, got, exp)
 }
 
+type TestTemplateData struct {
+	A string
+	B template.HTML
+}
+
 func TestMustParse(t *testing.T) {
-	tpl := MustParse("T", "{{.}}_{{html .}}")
-	got, err := ExecuteToString(tpl, "<")
+	d := TestTemplateData{A: "<", B: template.HTML("<")}
+	tpl := MustParse("T", "{{.A}}_{{.B}}")
+	got, err := ExecuteToString(tpl, d)
 	if err != nil {
 		panic(err)
 	}
-	exp := "<_&lt;"
+	exp := "&lt;_<"
 	test.Assert(t, got, exp)
 }

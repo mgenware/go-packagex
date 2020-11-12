@@ -2,8 +2,8 @@ package templatex
 
 import (
 	"bytes"
+	"html/template"
 	"io/ioutil"
-	"text/template"
 )
 
 // MustParse behaves like template.Parse, but panics if any error happens.

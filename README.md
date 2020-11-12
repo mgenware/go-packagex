@@ -79,7 +79,7 @@ Overview:
 
 [![GoDoc](https://godoc.org/github.com/mgenware/go-packagex/templatex?status.svg)](http://godoc.org/github.com/mgenware/go-packagex/templatex)
 
-**Note that `templatex` is built upon the `text/template` package, not the `html/template`.**
+**NOTE: Starting from v6, `templatex` is based on the `html/template` package, not the `text/template`.**
 
 Overview:
 

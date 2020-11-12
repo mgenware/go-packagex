@@ -1,14 +1,14 @@
 package templatex
 
 import (
+	"html/template"
 	"io"
 	"os"
 	"path/filepath"
-	"text/template"
 	"time"
 )
 
-// View wraps a Go text/template.Template object, providing ease of use.
+// View wraps a Go html/template.Template object, providing ease of use.
 type View struct {
 	// Use Template() to access the internal template data, which takes devMode into account.
 	internalTemplate *template.Template
