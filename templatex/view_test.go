@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/mgenware/go-packagex/v5/iox"
-	"github.com/mgenware/go-packagex/v5/test"
+	"github.com/mgenware/go-packagex/v6/iox"
+	"github.com/mgenware/go-packagex/v6/test"
 )
 
 func newViewFile() string {

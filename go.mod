@@ -1,4 +1,4 @@
-module github.com/mgenware/go-packagex/v5
+module github.com/mgenware/go-packagex/v6
 
 go 1.12
 

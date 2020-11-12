@@ -3,7 +3,7 @@ package jsonx
 import (
 	"testing"
 
-	"github.com/mgenware/go-packagex/v5/test"
+	"github.com/mgenware/go-packagex/v6/test"
 )
 
 var sampleDict map[string]interface{}
