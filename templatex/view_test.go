@@ -1,7 +1,7 @@
 package templatex
 
 import (
-	"io/ioutil"
+	"os"
 	"testing"
 	"time"
 
@@ -10,7 +10,10 @@ import (
 )
 
 func newViewFile() string {
-	t := iox.MustNewTempFileWithContent("view_test", []byte("1{{.}}"))
+	t, err := iox.NewTempFileWithContent("", "view_test", []byte("1{{.}}"))
+	if err != nil {
+		panic(err)
+	}
 	return t.Path()
 }
 
@@ -19,7 +22,7 @@ func TestView(t *testing.T) {
 	v := MustParseView(file, false)
 	got := v.MustExecuteToString("haha")
 	test.Assert(t, got, "1haha")
-	ioutil.WriteFile(file, []byte("2{{.}}"), 0644)
+	os.WriteFile(file, []byte("2{{.}}"), 0644)
 	got = v.MustExecuteToString("haha")
 	test.Assert(t, got, "1haha")
 }
@@ -30,7 +33,7 @@ func TestDevView(t *testing.T) {
 	got := v.MustExecuteToString("haha")
 	test.Assert(t, got, "1haha")
 	time.Sleep(time.Second)
-	ioutil.WriteFile(file, []byte("2{{.}}"), 0644)
+	os.WriteFile(file, []byte("2{{.}}"), 0644)
 	got = v.MustExecuteToString("haha")
 	test.Assert(t, got, "2haha")
 }

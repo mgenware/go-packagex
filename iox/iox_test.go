@@ -1,7 +1,6 @@
 package iox
 
 import (
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"testing"
@@ -9,12 +8,20 @@ import (
 	"github.com/mgenware/go-packagex/v5/test"
 )
 
+func newTempDir() string {
+	s, err := os.MkdirTemp("", "iox_test")
+	if err != nil {
+		panic(err)
+	}
+	return s
+}
+
 func nonExistingPath() string {
-	return filepath.Join(os.TempDir(), "___")
+	return filepath.Join(newTempDir(), "___")
 }
 
 func TestPathExists(t *testing.T) {
-	r, err := PathExists(os.TempDir())
+	r, err := PathExists(newTempDir())
 	test.PanicIfErr(err)
 	test.Assert(t, r, true)
 	r, err = PathExists(nonExistingPath())
@@ -23,7 +30,7 @@ func TestPathExists(t *testing.T) {
 }
 
 func TestFileExists(t *testing.T) {
-	f, err := ioutil.TempFile("", "go-packagex.iox")
+	f, err := os.CreateTemp("", "go-packagex.iox")
 	defer os.Remove(f.Name())
 	test.PanicIfErr(err)
 	r, err := FileExists(f.Name())
@@ -36,7 +43,7 @@ func TestFileExists(t *testing.T) {
 }
 
 func TestDirectoryExists(t *testing.T) {
-	r, err := DirectoryExists(os.TempDir())
+	r, err := DirectoryExists(newTempDir())
 	test.PanicIfErr(err)
 	test.Assert(t, r, true)
 

@@ -2,7 +2,6 @@ package filepathx
 
 import (
 	"path/filepath"
-	"strings"
 	"testing"
 
 	"github.com/mgenware/go-packagex/v5/test"
@@ -10,6 +9,14 @@ import (
 
 func errorf(t *testing.T, expected interface{}, got interface{}) {
 	t.Errorf("Expected %v, got %v", expected, got)
+}
+
+func mustTempFilePath(dir, pattern, ext string) string {
+	s, err := TempFilePath(dir, pattern, ext)
+	if err != nil {
+		panic(err)
+	}
+	return s
 }
 
 func TestTrimExt(t *testing.T) {
@@ -36,18 +43,8 @@ func TestTrimExt(t *testing.T) {
 func TestTempFilePath(t *testing.T) {
 	var got string
 
-	got = TempFilePath("", "")
-	if !strings.Contains(got, "tmp-") {
-		errorf(t, "contains tmp-", got)
-	}
-
-	got = TempFilePath(".jpeg", "")
+	got = mustTempFilePath("", "", ".jpeg")
 	if filepath.Ext(got) != ".jpeg" {
 		errorf(t, "has a jpeg ext", got)
-	}
-
-	got = TempFilePath("", "haha")
-	if !strings.Contains(got, "haha-") {
-		errorf(t, "contains haha-", got)
 	}
 }

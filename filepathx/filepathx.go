@@ -14,9 +14,10 @@ func TrimExt(basename string) string {
 }
 
 // TempFilePath returns a unique tmp file path (note the file is not created).
-func TempFilePath(ext, prefix string) string {
-	if prefix == "" {
-		prefix = "tmp"
+func TempFilePath(dir, pattern, extension string) (string, error) {
+	s, err := os.MkdirTemp(dir, pattern)
+	if err != nil {
+		return "", err
 	}
-	return path.Join(os.TempDir(), prefix+"-"+time.Now().Format("20060102150405")+ext)
+	return path.Join(s, time.Now().Format("20060102150405")+extension), nil
 }

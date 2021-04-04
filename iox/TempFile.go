@@ -1,7 +1,6 @@
 package iox
 
 import (
-	"io/ioutil"
 	"os"
 )
 
@@ -11,23 +10,26 @@ type TempFile struct {
 }
 
 // NewTempFile creates an TempFile.
-func NewTempFile(prefix string) (*TempFile, error) {
-	file, err := ioutil.TempFile("", prefix)
+func NewTempFile(dir, pattern string) (*TempFile, error) {
+	file, err := os.CreateTemp(dir, pattern)
 	if err != nil {
 		return nil, err
 	}
 	return &TempFile{file: file}, nil
 }
 
-// MustNewTempFileWithContent creates an TempFile with the given content, and panics if error occurred.
-func MustNewTempFileWithContent(prefix string, content []byte) *TempFile {
-	tf, err := NewTempFile(prefix)
+// NewTempFileWithContent creates an TempFile with the given content.
+func NewTempFileWithContent(dir, pattern string, content []byte) (*TempFile, error) {
+	tf, err := NewTempFile(dir, pattern)
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
-	tf.MustSetContent(content)
-	return tf
+	err = tf.SetContent(content)
+	if err != nil {
+		return nil, err
+	}
+	return tf, nil
 }
 
 // Dispose removes the temporary file.
@@ -55,12 +57,4 @@ func (t *TempFile) SetContent(content []byte) error {
 		return err
 	}
 	return nil
-}
-
-// MustSetContent calls SetContent and panics if error occurred.
-func (t *TempFile) MustSetContent(content []byte) {
-	err := t.SetContent(content)
-	if err != nil {
-		panic(err)
-	}
 }

@@ -1,13 +1,12 @@
 package iox
 
 import (
-	"io/ioutil"
 	"os"
 )
 
-// ReadFileText behaves like Go's ioutil.ReadFile, but returns a string instead.
+// ReadFileText behaves like Go's os.ReadFile, but returns a string instead.
 func ReadFileText(file string) (string, error) {
-	bytes, err := ioutil.ReadFile(file)
+	bytes, err := os.ReadFile(file)
 	if err != nil {
 		return "", err
 	}
