@@ -1,6 +1,6 @@
 # go-packagex
 
-[![Build Status](https://travis-ci.org/mgenware/go-packagex.svg?branch=master)](http://travis-ci.org/mgenware/go-packagex)
+[![Build](https://github.com/mgenware/go-packagex/actions/workflows/build.yml/badge.svg)](https://github.com/mgenware/go-packagex/actions/workflows/build.yml)
 
 Extra helpers for Go (Go 1.11+).
 
