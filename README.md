@@ -7,7 +7,7 @@ Extra helpers for Go (Go 1.11+).
 Import path:
 
 ```go
-import "github.com/mgenware/go-packagex/v5/<sub_package>"
+import "github.com/mgenware/go-packagex/v6/<sub_package>"
 ```
 
 ## Packages

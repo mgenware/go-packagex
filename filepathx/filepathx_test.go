@@ -4,7 +4,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/mgenware/go-packagex/v5/test"
+	"github.com/mgenware/go-packagex/v6/test"
 )
 
 func errorf(t *testing.T, expected interface{}, got interface{}) {
