@@ -2,6 +2,7 @@ package iox
 
 import (
 	"os"
+	"path/filepath"
 )
 
 // ReadFileText behaves like Go's os.ReadFile, but returns a string instead.
@@ -60,4 +61,19 @@ func DirectoryExists(dir string) (bool, error) {
 func IsDirectory(path string) bool {
 	dirExists, _ := DirectoryExists(path)
 	return dirExists
+}
+
+// Calls os.MkdirAll with 0755 permissions.
+func Mkdirp(path string) error {
+	return os.MkdirAll(path, 0755)
+}
+
+// CreateFile creates a file with the given path. It also creates
+// parent directories if needed.
+func CreateFile(path string) (*os.File, error) {
+	err := Mkdirp(filepath.Dir(path))
+	if err != nil {
+		return nil, err
+	}
+	return os.Create(path)
 }
